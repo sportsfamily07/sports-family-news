@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <meta name="description"
+        content="Sports Family - Latest Football, Cricket, NBA, NFL, Boxing and UFC News">
+
+  <meta name="author"
+        content="Abdul Alim">
+
+  <title>Sports Family - Sports News</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+
+  <header class="site-header">
+
+    <div class="header-top">
+
+      <!-- Mobile Menu Button -->
+      <button id="menu-btn">☰</button>
+
+      <!-- Website Logo / Name -->
+      <h1>SPORTS FAMILY</h1>
+
+      <!-- Header Actions -->
+      <div class="header-actions">
+
+  <button id="search-icon">
+    🔍
+  </button>
+
+  <button id="saved-btn">
+    🔖
+  </button>
+
+  <button id="dark-mode-btn">
+    🌙
+  </button>
+
+</div>
+     
+      
+    </div>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+<nav id="main-nav">
+
+  <button class="nav-btn active">Home</button>
+
+  <!-- Football Dropdown -->
+  <div class="nav-dropdown">
+    <button class="nav-btn dropdown-btn">
+      ⚽ Football <span>▼</span>
+    </button>
+
+    <div class="dropdown-menu">
+      <button class="dropdown-item" data-category="football">
+        Football News
+      </button>
+
+      <button class="dropdown-item">
+        Premier League
+      </button>
+
+      <button class="dropdown-item">
+        La Liga
+      </button>
+
+      <button class="dropdown-item">
+        Champions League
+      </button>
+
+      <button class="dropdown-item">
+        England Football
+      </button>
+
+      <button class="dropdown-item">
+        World Cup
+      </button>
+    </div>
+  </div>
+
+
+  <!-- Cricket Dropdown -->
+  <div class="nav-dropdown">
+    <button class="nav-btn dropdown-btn">
+      🏏 Cricket <span>▼</span>
+    </button>
+
+    <div class="dropdown-menu">
+      <button class="dropdown-item" data-category="cricket">
+        Cricket News
+      </button>
+
+      <button class="dropdown-item">
+        IPL
+      </button>
+
+      <button class="dropdown-item">
+        BPL
+      </button>
+
+      <button class="dropdown-item">
+        Big Bash
+      </button>
+
+      <button class="dropdown-item">
+        Bangladesh Cricket
+      </button>
+
+      <button class="dropdown-item">
+        International Cricket
+      </button>
+    </div>
+  </div>
+
+
+  <!-- NBA Dropdown -->
+  <div class="nav-dropdown">
+    <button class="nav-btn dropdown-btn">
+      🏀 NBA <span>▼</span>
+    </button>
+
+    <div class="dropdown-menu">
+      <button class="dropdown-item" data-category="nba">
+        NBA News
+      </button>
+
+      <button class="dropdown-item">
+        Scores
+      </button>
+
+      <button class="dropdown-item">
+        Schedule
+      </button>
+
+      <button class="dropdown-item">
+        Teams
+      </button>
+    </div>
+  </div>
+
+
+  <!-- NFL Dropdown -->
+  <div class="nav-dropdown">
+    <button class="nav-btn dropdown-btn">
+      🏈 NFL <span>▼</span>
+    </button>
+
+    <div class="dropdown-menu">
+      <button class="dropdown-item" data-category="nfl">
+        NFL News
+      </button>
+
+      <button class="dropdown-item">
+        Scores
+      </button>
+
+      <button class="dropdown-item">
+        Schedule
+      </button>
+
+      <button class="dropdown-item">
+        Teams
+      </button>
+    </div>
+  </div>
+
+
+  <button class="nav-btn">🥊 Boxing</button>
+
+  <button class="nav-btn">🥊 UFC</button>
+
+</nav>
+
+    <!-- =========================
+     SEARCH BOX
+========================= -->
+
+<div id="search-box">
+
+  <input
+    type="text"
+    id="search-input"
+    placeholder="Search sports news..."
+  >
+
+  <button id="search-btn">
+    Search
+  </button>
+  
+  <button id="search-close-btn" type="button">
+  ✕
+</button>
+
+</div>
+
+  </header>
+
+  <!-- =========================
+     SPORTS SCORE STRIP
+========================= -->
+
+<section class="score-strip">
+ 
+     <div class="score-title">
+
+  <button
+    id="score-sport-btn"
+    type="button"
+  >
+    NFL
+    <span>▼</span>
+  </button>
+
+  <div
+    id="score-sport-menu"
+    class="score-sport-menu"
+  >
+
+    <button type="button" data-sport="NFL">
+      NFL
+    </button>
+
+    <button type="button" data-sport="Football">
+      Football
+    </button>
+
+    <button type="button" data-sport="Cricket">
+      Cricket
+    </button>
+
+    <button type="button" data-sport="NBA">
+      NBA
+    </button>
+
+  </div>
+
+</div>
+
+
+  <div class="score-list">
+
+    <div class="score-item">
+
+      <span class="team">BUF</span>
+
+      <strong>24</strong>
+
+      <span class="score-vs">-</span>
+
+      <strong>26</strong>
+
+      <span class="team">NE</span>
+
+      <small class="score-live">LIVE</small>
+
+    </div>
+
+
+    <div class="score-item">
+
+      <span class="team">DAL</span>
+
+      <strong>34</strong>
+
+      <span class="score-vs">-</span>
+
+      <strong>30</strong>
+
+      <span class="team">HOU</span>
+
+      <small class="score-upcoming">8:15 PM</small>
+
+    </div>
+
+
+    <div class="score-item">
+
+      <span class="team">LAR</span>
+
+      <strong>24</strong>
+
+      <span class="score-vs">-</span>
+
+      <strong>20</strong>
+
+      <span class="team">PHI</span>
+
+      <small>FINAL</small>
+
+    </div>
+    
+    <div class="score-item">
+
+  <span class="team">KC</span>
+
+  <strong>30</strong>
+
+  <span class="score-vs">-</span>
+
+  <strong>27</strong>
+
+  <span class="team">LV</span>
+
+  <small>FINAL</small>
+
+</div>
+
+
+<div class="score-item">
+
+  <span class="team">LAC</span>
+
+  <strong>23</strong>
+
+  <span class="score-vs">-</span>
+
+  <strong>30</strong>
+
+  <span class="team">SEA</span>
+
+  <small>FINAL</small>
+
+</div>
+
+
+<div class="score-item">
+
+  <span class="team">DEN</span>
+
+  <strong>14</strong>
+
+  <span class="score-vs">-</span>
+
+  <strong>24</strong>
+
+  <span class="team">SF</span>
+
+  <small>FINAL</small>
+
+</div>
+
+
+  </div>
+
+</section>
+
+<!-- =========================
+     MATCH DETAILS PANEL
+========================= -->
+
+<div
+  id="match-details-panel"
+  class="match-details-panel"
+  style="display:none;"
+>
+
+  <button
+    id="close-match-details"
+    class="close-match-details"
+    type="button"
+  >
+    ✕
+  </button>
+
+  <div class="match-details-header">
+
+    <span id="match-sport">
+      NFL
+    </span>
+
+    <span id="match-status">
+      LIVE
+    </span>
+
+  </div>
+
+  <div class="match-teams">
+
+    <div class="match-team">
+
+  <div
+    id="match-logo1"
+    class="match-logo"
+  >
+    🏈
+  </div>
+
+  <strong id="match-team1">
+    BUF
+  </strong>
+
+  <span id="match-score1">
+    24
+  </span>
+
+</div>
+
+    <div class="match-vs">
+      -
+    </div>
+    
+    <div class="match-team">
+
+  <span id="match-score2">
+    26
+  </span>
+
+  <strong id="match-team2">
+    NE
+  </strong>
+
+  <div
+    id="match-logo2"
+    class="match-logo"
+  >
+    🏈
+  </div>
+
+</div>
+
+
+  </div>
+
+  <div class="match-extra">
+
+    <p>
+      <strong>Venue:</strong>
+      <span id="match-venue">
+        Sports Family Stadium
+      </span>
+    </p>
+
+    <p>
+      <strong>Time:</strong>
+      <span id="match-time">
+        Live
+      </span>
+    </p>
+
+  </div>
+
+</div>
+
+
+  <!-- =========================
+       MAIN CONTENT
+  ========================== -->
+
+  <main>
+
+
+    <!-- =========================
+         BREAKING NEWS
+    ========================== -->
+
+    <section class="breaking-news">
+
+      <div class="breaking-title">
+        🔥 BREAKING NEWS
+      </div>
+
+      <div class="breaking-content">
+
+<p
+  class="breaking-link"
+  data-id="1"
+  tabindex="0"
+>
+  Argentina football team makes headlines
+  around the world.
+</p>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         HERO SECTION
+    ========================== -->
+
+    <section class="hero-section">
+
+      <!-- Featured News -->
+       
+       <article class="featured-news">
+
+  <div class="featured-image">
+
+    <img
+      src="football.jpeg"
+      alt="Featured Sports News">
+      
+      <span class="featured-badge">⭐ FEATURED</span>
+
+    <span class="hero-category">
+      FOOTBALL
+    </span>
+
+  </div>
+
+  <div class="featured-content">
+
+    <h2>
+      Argentina Football Team
+      Makes Headlines
+    </h2>
+
+    <p>
+      Get the latest football news,
+      match updates and important
+      sports stories from around
+      the world.
+    </p>
+    
+    <div class="featured-meta">
+
+  <span>✍️ Sports Family</span>
+
+  <span>📅 Today</span>
+
+  <span>⏱️ 3 min read</span>
+
+</div>
+
+<button
+  class="read-more-btn"
+  data-id="1">
+
+  <span>Read More</span>
+  <span class="btn-arrow">→</span>
+
+</button>
+
+  </div>
+
+</article>
+      <!-- Latest News -->
+
+      <aside
+      class="latest-news">
+
+        <h2>
+          Latest News
+        </h2>
+
+        <article class="latest-item" data-id="2" tabindex="0">
+          
+          <img src="cricket.jpeg"
+               alt="Cricket News">
+               
+          <div>
+            <span>CRICKET</span>
+
+            <h3>
+              Bangladesh Cricket
+              Latest Update
+            </h3>
+            
+            <small class="latest-time">
+             Today • 2h ago
+            </small>
+
+          </div>
+
+        </article>
+
+
+        <article 
+        class="latest-item"
+        data-id="9" tabindex="0">
+
+          <img src="nba.jpeg"
+               alt="NBA News">
+
+          <div>
+            <span>NBA</span>
+
+            <h3>
+              NBA Latest News
+              and Updates
+            </h3>
+            <small class="latest-time">
+  Today • 4h ago
+</small>
+
+          </div>
+
+        </article>
+
+
+        <article class="latest-item" data-id="4" tabindex="0">
+
+          <img src="boxing.jpeg"
+               alt="Boxing News">
+
+          <div>
+            <span>BOXING</span>
+
+            <h3>
+              Latest Boxing
+              News
+            </h3>
+<small class="latest-time">
+  Today • 6h ago
+</small>
+          </div>
+
+        </article>
+
+      </aside>
+
+    </section>
+
+
+
+    <!-- =========================
+         LATEST NEWS
+    ========================== -->
+
+    <section class="latest-section">
+      <!-- Loading Skeleton -->
+
+<div id="loading-skeleton" class="loading-skeleton">
+
+  <div class="skeleton-card">
+    <div class="skeleton-image"></div>
+
+    <div class="skeleton-content">
+      <div class="skeleton-line small"></div>
+      <div class="skeleton-line title"></div>
+      <div class="skeleton-line"></div>
+      <div class="skeleton-line"></div>
+    </div>
+  </div>
+
+  <div class="skeleton-card">
+    <div class="skeleton-image"></div>
+
+    <div class="skeleton-content">
+      <div class="skeleton-line small"></div>
+      <div class="skeleton-line title"></div>
+      <div class="skeleton-line"></div>
+      <div class="skeleton-line"></div>
+    </div>
+  </div>
+
+  <div class="skeleton-card">
+    <div class="skeleton-image"></div>
+
+    <div class="skeleton-content">
+      <div class="skeleton-line small"></div>
+      <div class="skeleton-line title"></div>
+      <div class="skeleton-line"></div>
+      <div class="skeleton-line"></div>
+    </div>
+  </div>
+
+</div>
+
+
+      <div class="section-header">
+
+        <h2>
+          Latest News
+        </h2>
+
+<button id="view-all-latest">
+  View All →
+</button>
+
+      </div>
+
+
+      <div class="news-grid">
+
+        <!-- News Card 1 -->
+
+        <article class="news-card">
+
+          <img src="football.jpeg"
+               alt="Football News">
+
+          <div class="news-content">
+
+            <span class="category">
+              FOOTBALL
+            </span>
+
+            <h3>
+              Latest Football
+              News and Updates
+            </h3>
+
+            <p>
+              Latest match news,
+              results and updates.
+            </p>
+
+            <div class="news-meta">
+
+              <span>
+                Sep 24, 2026
+              </span>
+
+              <span>
+                5 min read
+              </span>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- News Card 2 -->
+
+        <article class="news-card">
+
+          <img src="cricket.jpeg"
+               alt="Cricket News">
+
+          <div class="news-content">
+
+            <span class="category">
+              CRICKET
+            </span>
+
+            <h3>
+              Bangladesh Cricket
+              Latest News
+            </h3>
+
+            <p>
+              Get the latest cricket
+              updates and stories.
+            </p>
+
+            <div class="news-meta">
+
+              <span>
+                Sep 24, 2026
+              </span>
+
+              <span>
+                4 min read
+              </span>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- News Card 3 -->
+
+        <article class="news-card">
+
+          <img src="nba.jpeg"
+               alt="NBA News">
+
+          <div class="news-content">
+
+            <span class="category">
+              NBA
+            </span>
+
+            <h3>
+              NBA Latest News
+              and Updates
+            </h3>
+
+            <p>
+              Latest NBA news,
+              scores and stories.
+            </p>
+
+            <div class="news-meta">
+
+              <span>
+                Sep 24, 2026
+              </span>
+
+              <span>
+                3 min read
+              </span>
+
+            </div>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         TRENDING NEWS
+    ========================== -->
+
+    <section class="trending-section">
+
+      <div class="section-header">
+
+        <h2>
+          🔥 Trending News
+        </h2>
+
+       <button id="view-all-trending">
+  View All →
+</button>
+      </div>
+
+      <div id="trending-grid">
+
+        <!-- JavaScript will add
+             trending news here -->
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         SPORTS CATEGORIES
+    ========================== -->
+
+    <section class="sports-section">
+
+      <h2>
+        Explore Sports
+      </h2>
+
+      <div class="sports-categories">
+
+        <button>⚽ Football</button>
+
+        <button>🏏 Cricket</button>
+
+        <button>🏀 NBA</button>
+
+        <button>🏈 NFL</button>
+
+        <button>🥊 Boxing</button>
+
+        <button>🥊 UFC</button>
+
+      </div>
+      
+      <div class="sports-news-grid">
+
+  <article class="sports-news-card">
+
+    <img
+      src="football.jpeg"
+      alt="Football News">
+
+    <div class="sports-news-content">
+
+      <span>FOOTBALL</span>
+
+      <h3>
+        Latest Football News
+        and Updates
+      </h3>
+
+      <p>
+        Get the latest football
+        news, match updates and
+        important stories.
+      </p>
+      
+<div class="sports-news-meta">
+
+  <span>
+    September 24, 2026
+  </span>
+
+  <span>
+    5 min read
+  </span>
+  
+  <span>
+  👁 0 views
+</span>
+
+</div>
+
+      <button
+        class="sports-read-more"
+        data-id="1">
+        Read More →
+      </button>
+
+    </div>
+
+  </article>
+  
+  <!-- Cricket -->
+
+<article class="sports-news-card">
+
+  <img
+    src="cricket.jpeg"
+    alt="Cricket News">
+
+  <div class="sports-news-content">
+
+    <span>CRICKET</span>
+
+    <h3>
+      Latest Cricket News
+      and Updates
+    </h3>
+
+    <p>
+      Get the latest cricket
+      news, match updates and
+      important stories.
+    </p>
+    <div class="sports-news-meta">
+
+  <span>
+    September 24, 2026
+  </span>
+
+  <span>
+    4 min read
+  </span>
+
+</div>
+
+    <button
+      class="sports-read-more"
+      data-id="2">
+      Read More →
+    </button>
+
+  </div>
+
+</article>
+
+
+<!-- NBA -->
+
+<article class="sports-news-card">
+
+  <img
+    src="nba.jpeg"
+    alt="NBA News">
+
+  <div class="sports-news-content">
+
+    <span>NBA</span>
+
+    <h3>
+      Latest NBA News
+      and Updates
+    </h3>
+
+    <p>
+      Get the latest NBA
+      news, game updates and
+      important stories.
+    </p>
+    
+    <div class="sports-news-meta">
+
+  <span>
+    September 24, 2026
+  </span>
+
+  <span>
+    3 min read
+  </span>
+
+</div>
+
+    <button
+      class="sports-read-more"
+      data-id="9">
+      Read More →
+    </button>
+
+  </div>
+
+</article>
+
+
+<!-- NFL -->
+
+<article class="sports-news-card">
+
+  <img
+    src="nfl.png"
+    alt="NFL News">
+
+  <div class="sports-news-content">
+
+    <span>NFL</span>
+
+    <h3>
+      Latest NFL News
+      and Updates
+    </h3>
+
+    <p>
+      Get the latest NFL
+      news, game updates and
+      important stories.
+    </p>
+    
+    <div class="sports-news-meta">
+
+  <span>
+    September 24, 2026
+  </span>
+
+  <span>
+    5 min read
+  </span>
+
+</div>
+
+    <button
+      class="sports-read-more"
+      data-id="5">
+      Read More →
+    </button>
+
+  </div>
+
+</article>
+
+
+<!-- Boxing -->
+
+<article class="sports-news-card">
+
+  <img
+    src="boxing.jpeg"
+    alt="Boxing News">
+
+  <div class="sports-news-content">
+
+    <span>BOXING</span>
+
+    <h3>
+      Latest Boxing News
+      and Updates
+    </h3>
+
+    <p>
+      Get the latest boxing
+      news, fight updates and
+      important stories.
+    </p>
+    <div class="sports-news-meta">
+
+  <span>
+    September 24, 2026
+  </span>
+
+  <span>
+    4 min read
+  </span>
+
+</div>
+
+    <button
+      class="sports-read-more"
+      data-id="10">
+      Read More →
+    </button>
+
+  </div>
+
+</article>
+
+
+<!-- UFC -->
+
+<article class="sports-news-card">
+
+  <img
+    src="ufc.jpeg"
+    alt="UFC News">
+
+  <div class="sports-news-content">
+
+    <span>UFC</span>
+
+    <h3>
+      Latest UFC News
+      and Updates
+    </h3>
+
+    <p>
+      Get the latest UFC
+      news, fight updates and
+      important stories.
+    </p>
+    <div class="sports-news-meta">
+
+  <span>
+    September 24, 2026
+  </span>
+
+  <span>
+    4 min read
+  </span>
+
+</div>
+
+    <button
+      class="sports-read-more"
+      data-id="6">
+      Read More →
+    </button>
+
+  </div>
+
+</article>
+
+
+</div>
+
+    </section>
+
+
+  </main>
+
+
+
+
+<!-- =========================
+     FOOTER
+========================== -->
+
+<footer class="site-footer">
+
+  <div class="footer-content">
+
+    <!-- About -->
+    <div class="footer-about">
+
+      <h2>
+        SPORTS FAMILY
+      </h2>
+
+<p>
+  Sports Family is a sports news platform covering the latest
+  Football, Cricket, NBA, NFL, Boxing and UFC news, updates,
+  scores and stories from around the world.
+</p>
+    </div>
+
+
+    <!-- Quick Links -->
+    <div class="footer-column">
+
+      <h3>
+        Quick Links
+      </h3>
+
+      <a href="#">
+        Home
+      </a>
+
+      <a href="#">
+        Football
+      </a>
+
+      <a href="#">
+        Cricket
+      </a>
+
+      <a href="#">
+        NBA
+      </a>
+      <a href="#">
+        NFL
+      </a>
+      <a href="#">
+        UFC
+      </a>
+      <a href="#">
+        Boxing
+      </a>
+
+    </div>
+
+
+    <!-- Information -->
+    <div class="footer-column">
+
+      <h3>
+        Information
+      </h3>
+
+      <a href="about.html">
+        About Us
+      </a>
+
+      <a href="contact.html">
+        Contact
+      </a>
+
+      <a href="privacy.html">
+        Privacy Policy
+      </a>
+
+      <a href="disclaimer.html">
+        Disclaimer
+      </a>
+
+    </div>
+
+  </div>
+
+<!-- Social Links -->
+
+<div class="footer-social">
+
+  <!-- Facebook -->
+  <a href="https://web.facebook.com/Alimhp07"
+  target="_blank" 
+  rel="noopener noreferrer"
+  aria-label="Facebook">
+
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M14 8h3V4h-3c-3.3 0-5 1.7-5 5v3H6v4h3v8h4v-8h3l1-4h-4V9c0-.7.3-1 1-1z"/>
+    </svg>
+
+  </a>
+
+
+  <!-- YouTube -->
+  <a href="#" aria-label="YouTube">
+
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.6 15.5v-7l6.2 3.5-6.2 3.5z"/>
+    </svg>
+
+  </a>
+
+
+  <!-- X / Twitter -->
+  <a href="#" aria-label="X">
+
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M18.2 2H22l-8.3 9.5L23.5 22h-7.4l-5.8-7.1L4.1 22H.3l8.9-10.2L.5 2h7.6l5.2 6.5L18.2 2zm-1.3 17.8h2L6.9 4H4.8l12.1 15.8z"/>
+    </svg>
+
+  </a>
+
+
+  <!-- TikTok -->
+  <a href="#" aria-label="TikTok">
+
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M16 3c.4 2.4 1.8 4 4 4.2v3.1c-1.5-.1-2.8-.6-4-1.5v7.1c0 4.2-2.7 6.1-5.7 6.1A5.8 5.8 0 0 1 4.5 16c0-3.4 2.6-5.8 6.2-5.8.4 0 .8 0 1.2.1v3.2c-.4-.1-.7-.2-1.1-.2-1.6 0-2.9 1-2.9 2.6 0 1.5 1.2 2.6 2.5 2.6 1.5 0 2.6-.9 2.6-3V3H16z"/>
+    </svg>
+
+  </a>
+
+</div>
+
+<!-- Newsletter -->
+
+<div class="footer-newsletter">
+
+  <h3>
+    Stay Updated
+  </h3>
+
+  <p>
+    Get the latest sports news and updates.
+  </p>
+
+  <div class="newsletter-form">
+
+    <input
+      type="email"
+      id="newsletter-email"
+      placeholder="Enter your email"
+    >
+
+    <button id="subscribe-btn">
+      Subscribe
+    </button>
+
+  </div>
+
+</div>
+
+
+  <!-- Footer Bottom -->
+
+  <div class="footer-bottom">
+
+    © 2026 Sports Family News.
+    All Rights Reserved.
+
+  </div>
+
+</footer>
+
+<!-- =========================
+     API SEARCH
+========================= -->
+<div class="api-search">
+
+  <input
+    type="text"
+    id="api-search-input"
+    placeholder="Search sports news..."
+  >
+
+  <button
+    id="api-search-btn"
+    type="button">
+    🔍 Search
+  </button>
+
+</div>
+
+
+
+<!-- API CATEGORY FILTER -->
+
+<div class="api-filter">
+
+  <label for="api-user-filter">
+    Filter Posts:
+  </label>
+
+  <select id="api-user-filter">
+    <option value="all">All Posts</option>
+    <option value="1">User 1</option>
+    <option value="2">User 2</option>
+    <option value="3">User 3</option>
+    <option value="4">User 4</option>
+    <option value="5">User 5</option>
+    <option value="6">User 6</option>
+  </select>
+
+</div>
+
+
+<div class="api-category-filter">
+
+  <button class="api-cat-btn active" data-category="all">
+    All
+  </button>
+
+  <button class="api-cat-btn" data-category="football">
+    Football
+  </button>
+
+  <button class="api-cat-btn" data-category="cricket">
+    Cricket
+  </button>
+
+  <button class="api-cat-btn" data-category="nba">
+    NBA
+  </button>
+
+  <button class="api-cat-btn" data-category="boxing">
+    Boxing
+  </button>
+
+  <button class="api-cat-btn" data-category="ufc">
+    UFC
+  </button>
+
+</div>
+
+
+<div class="api-saved-filter">
+
+  <button
+    type="button"
+    id="api-show-all-btn"
+    class="api-saved-filter-btn active"
+  >
+    📰 All News
+  </button>
+
+  
+<button
+  type="button"
+  id="api-show-saved-btn"
+  class="api-saved-filter-btn"
+>
+  🔖 Saved News (<span id="saved-api-count">0</span>)
+</button>
+
+
+</div>
+
+
+
+<div id="api-test"></div>
+
+<!-- =========================
+     API PAGINATION
+========================= -->
+
+<div class="api-pagination">
+
+  <button id="api-prev-btn" type="button">
+    ← Previous
+  </button>
+
+  <span id="api-page-number">
+    Page 1
+  </span>
+
+  <button id="api-next-btn" type="button">
+    Next →
+  </button>
+
+</div>
+
+
+
+  <script src="main.js"></script>
+
+</body>
+
+</html>
