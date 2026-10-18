@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sports Family News brings you the latest football, cricket, NBA, NFL, boxing and UFC news, match updates, scores and highlights.">
+  <meta name="author" content="Abdul Alim">
+  <meta name="theme-color" content="#061b35">
+  <title>Sports Family News | Latest Sports News, Scores & Highlights</title>
+  <style>
+    :root {
+      --navy: #061b35;
+      --navy2: #09294c;
+      --blue: #087cf0;
+      --red: #f52246;
+      --ink: #10213a;
+      --muted: #62758c;
+      --line: #dce6f0;
+      --paper: #f4f8fc;
+      --white: #fff;
+      --radius: 15px;
+      --shadow: 0 7px 24px rgba(8, 32, 62, .09);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink); background: var(--paper); line-height: 1.55;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input { font: inherit; }
+    .wrap { width: min(1200px, calc(100% - 32px)); margin: auto; }
+    .topbar { background: var(--navy); color: var(--white); }
+    .header-row { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { display: flex; align-items: center; gap: 11px; min-width: 0; }
+    .brand-ball { width: 47px; height: 47px; border-radius: 50%; display: grid; place-items: center; background: #fff; color: var(--navy); font-size: 27px; flex-shrink: 0; }
+    .brand-name { font-size: clamp(19px, 3vw, 27px); font-weight: 900; line-height: 1.05; letter-spacing: -.7px; }
+    .brand-name span { color: #ff3152; }
+    .tagline { font-size: 12px; color: #c9d8e8; margin-top: 5px; }
+    .header-actions { display: flex; align-items: center; gap: 10px; }
+    .search { display: flex; background: #153656; border: 1px solid #2a4a69; border-radius: 30px; padding: 5px; }
+    .search input { width: 175px; border: 0; outline: 0; background: transparent; color: white; padding: 7px 11px; }
+    .search input::placeholder { color: #c6d5e4; }
+    .search button { border: 0; background: var(--blue); color: white; border-radius: 50%; width: 34px; height: 34px; cursor: pointer; }
+    .nav { display: flex; gap: 4px; padding: 0 0 12px; overflow-x: auto; }
+    .nav a { color: #e4edf7; font-size: 14px; font-weight: 700; padding: 10px 19px; border-radius: 9px; white-space: nowrap; }
+    .nav a:hover, .nav a.active { background: var(--red); color: white; }
+    .hero {
+      margin: 20px 0 14px; overflow: hidden; border-radius: 17px; color: white;
+      background:
+        radial-gradient(circle at 15% 50%, rgba(5, 206, 167, .24), transparent 28%),
+        radial-gradient(circle at 85% 50%, rgba(0, 132, 255, .32), transparent 28%),
+        linear-gradient(115deg, #06162d, #08365b 52%, #061a32);
+      box-shadow: var(--shadow); position: relative;
+    }
+    .hero::before, .hero::after { content: ""; position: absolute; border-radius: 50%; border: 1px solid rgba(255,255,255,.1); width: 330px; height: 330px; top: -100px; }
+    .hero::before { left: -130px; } .hero::after { right: -110px; }
+    .hero-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr minmax(260px, 1.2fr) 1fr; align-items: center; gap: 12px; padding: 32px 26px; min-height: 285px; }
+    .team { text-align: center; }
+    .team-icon { font-size: clamp(52px, 7vw, 84px); line-height: 1.2; filter: drop-shadow(0 5px 9px rgba(0,0,0,.25)); }
+    .team h2 { margin: 7px 0 2px; font-size: clamp(15px, 2vw, 21px); }
+    .team p { margin: 0; color: #c8deef; font-size: 12px; }
+    .hero-main { text-align: center; }
+    .league { display: inline-block; background: #fff; color: var(--navy); font-weight: 900; font-size: 12px; border-radius: 6px; padding: 5px 10px; letter-spacing: 1px; }
+    .hero h1 { font-size: clamp(27px, 4vw, 48px); line-height: 1.08; margin: 13px 0 8px; text-transform: uppercase; letter-spacing: -1px; }
+    .hero h1 span { color: #29a7ff; }
+    .hero-sub { margin: 0 0 18px; color: #d9e8f5; }
+    .btn { display: inline-flex; justify-content: center; align-items: center; gap: 8px; padding: 11px 17px; border-radius: 9px; background: var(--red); color: white; font-weight: 800; border: 0; cursor: pointer; transition: transform .15s, filter .15s; }
+    .btn:hover { transform: translateY(-1px); filter: brightness(1.06); }
+    .btn.blue { background: var(--blue); }
+    .score-strip { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; background: var(--navy); color: white; border-radius: 12px; padding: 13px 16px; margin-bottom: 25px; }
+    .live-pill { color: white; background: var(--red); border-radius: 5px; padding: 3px 8px; font-size: 12px; font-weight: 900; }
+    .score-strip .muted { color: #b9cce0; font-size: 13px; }
+    .score-strip .all { margin-left: auto; color: #d6e9fb; font-size: 13px; font-weight: 700; }
+    .section-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 0 0 13px; }
+    .section-head h2 { margin: 0; font-size: 23px; letter-spacing: -.4px; }
+    .section-head a { color: #086ecb; font-size: 13px; font-weight: 800; white-space: nowrap; }
+    .layout { display: grid; grid-template-columns: minmax(0, 1fr) 310px; gap: 22px; align-items: start; }
+    .news-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 15px; }
+    .news-card { background: white; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; box-shadow: 0 3px 12px rgba(8,32,62,.04); transition: transform .18s, box-shadow .18s; }
+    .news-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+    .news-image { min-height: 145px; display: grid; place-items: center; color: white; font-size: 56px; position: relative; overflow: hidden; }
+    .news-image::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0,0,0,.26), transparent 70%); }
+    .football { background: linear-gradient(135deg, #09563e, #0b9a71); }
+    .cricket { background: linear-gradient(135deg, #0d633d, #b3c943); }
+    .nba { background: linear-gradient(135deg, #6c3a16, #f49b25); }
+    .boxing { background: linear-gradient(135deg, #3d1521, #c92c4c); }
+    .nfl { background: linear-gradient(135deg, #08294d, #0879b9); }
+    .ufc { background: linear-gradient(135deg, #252525, #6c1b1b); }
+    .tag { position: absolute; z-index: 1; left: 12px; bottom: 10px; background: var(--blue); color: white; border-radius: 5px; padding: 4px 8px; font-size: 10px; font-weight: 900; letter-spacing: .4px; }
+    .news-body { padding: 13px 14px 14px; }
+    .news-body h3 { font-size: 16px; line-height: 1.35; margin: 0 0 9px; }
+    .news-body p { margin: 0 0 11px; font-size: 13px; color: var(--muted); }
+    .meta { display: flex; flex-wrap: wrap; gap: 12px; color: #6d8298; font-size: 11px; }
+    .side-card { background: var(--navy); color: white; padding: 17px; border-radius: 13px; margin-bottom: 15px; box-shadow: var(--shadow); }
+    .side-card h3 { margin: 0 0 13px; padding-bottom: 10px; border-bottom: 1px solid #23415f; font-size: 16px; }
+    .popular-item { display: grid; grid-template-columns: 24px 48px 1fr; gap: 9px; align-items: center; padding: 10px 0; border-bottom: 1px solid #1d3c5b; }
+    .popular-item:last-child { border-bottom: 0; padding-bottom: 0; }
+    .rank { font-weight: 900; color: #b9d5f1; }
+    .mini-thumb { height: 43px; border-radius: 7px; display: grid; place-items: center; background: #164b70; font-size: 24px; }
+    .popular-item strong { display: block; font-size: 12px; line-height: 1.35; }
+    .popular-item small { color: #b8cbe0; font-size: 10px; }
+    .match { padding: 11px 0; border-bottom: 1px solid #23415f; }
+    .match:last-child { border-bottom: 0; padding-bottom: 0; }
+    .match strong { display: block; font-size: 12px; }
+    .match small { color: #bfd1e4; font-size: 11px; }
+    .newsletter p { color: #c5d8eb; font-size: 13px; margin: 0 0 12px; }
+    .newsletter form { display: grid; gap: 8px; }
+    .newsletter input { width: 100%; min-width: 0; border: 1px solid #cbd9e6; border-radius: 7px; padding: 11px; outline-color: var(--blue); }
+    .newsletter .btn { width: 100%; }
+    .categories { margin: 28px 0 30px; }
+    .category-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; }
+    .category { text-align: center; background: white; border: 1px solid var(--line); border-radius: 11px; padding: 17px 8px 13px; transition: .15s; }
+    .category:hover { border-color: #8bbce9; transform: translateY(-2px); }
+    .category .emoji { display: block; font-size: 34px; margin-bottom: 5px; }
+    .category strong { display: block; font-size: 13px; }
+    .category small { display: block; font-size: 10px; color: var(--muted); margin-top: 3px; }
+    .cta { background: linear-gradient(110deg, #0a2a4a, #07599a); color: white; padding: 24px; border-radius: 15px; display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-bottom: 30px; }
+    .cta h2 { margin: 0 0 4px; font-size: 22px; }
+    .cta p { margin: 0; color: #d0e4f6; font-size: 13px; }
+    footer { background: #04162b; color: white; padding: 30px 0 0; }
+    .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 24px; padding-bottom: 25px; }
+    footer h3 { margin: 0 0 10px; font-size: 15px; }
+    footer p, footer a { color: #bfd0e2; font-size: 12px; }
+    footer a { display: block; margin: 6px 0; }
+    footer a:hover { color: white; }
+    .copyright { border-top: 1px solid #183451; padding: 14px 0; color: #9db4cc; font-size: 11px; display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+    .mobile-menu { display: none; }
+    .notice { font-size: 12px; color: var(--muted); margin: 10px 0 0; }
+    @media (max-width: 900px) {
+      .layout { grid-template-columns: minmax(0, 1fr) 270px; gap: 14px; }
+      .hero-inner { padding: 24px 15px; }
+      .category-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .search input { width: 125px; }
+    }
+    @media (max-width: 680px) {
+      .wrap { width: min(100% - 22px, 560px); }
+      .header-row { min-height: 72px; gap: 10px; }
+      .brand-ball { width: 38px; height: 38px; font-size: 22px; }
+      .tagline { font-size: 10px; }
+      .search { display: none; }
+      .nav { gap: 3px; padding-bottom: 10px; }
+      .nav a { padding: 9px 13px; font-size: 12px; }
+      .hero { margin-top: 12px; }
+      .hero-inner { grid-template-columns: 1fr 1.4fr 1fr; padding: 22px 8px; min-height: 235px; gap: 3px; }
+      .team-icon { font-size: 43px; }
+      .team h2 { font-size: 11px; line-height: 1.2; }
+      .team p { display: none; }
+      .hero h1 { font-size: clamp(22px, 6vw, 31px); }
+      .hero-sub { font-size: 11px; margin-bottom: 12px; }
+      .hero .btn { font-size: 11px; padding: 9px 10px; }
+      .score-strip { gap: 8px; padding: 11px; font-size: 12px; }
+      .score-strip .all { margin-left: 0; }
+      .layout { grid-template-columns: 1fr; }
+      .news-grid { gap: 10px; }
+      .news-image { min-height: 115px; font-size: 44px; }
+      .news-body { padding: 10px; }
+      .news-body h3 { font-size: 13px; }
+      .news-body p { display: none; }
+      .meta { gap: 8px; font-size: 10px; }
+      .sidebar { display: grid; grid-template-columns: 1fr; }
+      .side-card { margin-bottom: 12px; }
+      .category-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+      .category { padding: 12px 4px; }
+      .category .emoji { font-size: 28px; }
+      .cta { align-items: flex-start; flex-direction: column; padding: 19px; }
+      .footer-grid { gap: 18px; }
+      .footer-grid > div:first-child { grid-column: 1 / -1; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <div class="header-row">
+        <a class="brand" href="index.html" aria-label="Sports Family News home">
+          <span class="brand-ball" aria-hidden="true">⚽</span>
+          <span>
+            <span class="brand-name">SPORTS FAMILY <span>NEWS</span></span>
+            <span class="tagline">Football · Cricket · NBA · NFL · Boxing · UFC</span>
+          </span>
+        </a>
+        <div class="header-actions">
+          <form class="search" id="site-search" role="search">
+            <input id="search-input" type="search" placeholder="Search sports news..." aria-label="Search sports news">
+            <button type="submit" aria-label="Search">⌕</button>
+          </form>
+          <a class="btn blue" href="index.html" style="padding:9px 13px;font-size:12px">Visit News Site ↗</a>
+        </div>
+      </div>
+      <nav class="nav" aria-label="Sports categories">
+        <a class="active" href="#latest">All</a>
+        <a href="#football">Football</a>
+        <a href="#cricket">Cricket</a>
+        <a href="#nba">NBA</a>
+        <a href="#nfl">NFL</a>
+        <a href="#boxing">Boxing</a>
+        <a href="#ufc">UFC</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-inner">
+        <div class="team">
+          <div class="team-icon" aria-hidden="true">🦅</div>
+          <h2>Philadelphia Eagles</h2>
+          <p>Fly Eagles Fly</p>
+        </div>
+        <div class="hero-main">
+          <span class="league">NFL • GAME DAY</span>
+          <h1 id="hero-title">Eagles <span>vs</span> Panthers<br>NFL 2026</h1>
+          <p class="hero-sub">Kickoff: 11:00 PM (BDT) · Match preview & updates</p>
+          <a class="btn" href="index.html">Read Latest Updates →</a>
+        </div>
+        <div class="team">
+          <div class="team-icon" aria-hidden="true">🐈‍⬛</div>
+          <h2>Carolina Panthers</h2>
+          <p>Keep Pounding</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="score-strip" aria-label="Featured match">
+      <span class="live-pill">NFL FEATURE</span>
+      <strong>Eagles vs Panthers</strong>
+      <span class="muted">Kickoff · 11:00 PM (BDT)</span>
+      <a class="all" href="index.html">Visit Sports News →</a>
+    </div>
+
+    <div class="layout" id="latest">
+      <section>
+        <div class="section-head">
+          <h2>🔥 Latest Sports News</h2>
+          <a href="index.html">View all news →</a>
+        </div>
+        <div class="news-grid" id="news-grid">
+          <a class="news-card" id="football" href="index.html">
+            <div class="news-image football"><span>⚽</span><span class="tag">FOOTBALL</span></div>
+            <div class="news-body">
+              <h3>Football News, Match Results & Latest Updates</h3>
+              <p>Follow major football stories, teams, tournaments and match-day developments.</p>
+              <div class="meta"><span>⚽ Football</span><span>Latest updates</span></div>
+            </div>
+          </a>
+          <a class="news-card" id="cricket" href="index.html">
+            <div class="news-image cricket"><span>🏏</span><span class="tag">CRICKET</span></div>
+            <div class="news-body">
+              <h3>Cricket News, Scores & Match Analysis</h3>
+              <p>Catch up on cricket teams, international fixtures, performances and highlights.</p>
+              <div class="meta"><span>🏏 Cricket</span><span>News & analysis</span></div>
+            </div>
+          </a>
+          <a class="news-card" id="nba" href="index.html">
+            <div class="news-image nba"><span>🏀</span><span class="tag">NBA</span></div>
+            <div class="news-body">
+              <h3>NBA News, Scores & Player Updates</h3>
+              <p>Stay informed about basketball news, team performances and key player stories.</p>
+              <div class="meta"><span>🏀 NBA</span><span>Scores & highlights</span></div>
+            </div>
+          </a>
+          <a class="news-card" id="boxing" href="index.html">
+            <div class="news-image boxing"><span>🥊</span><span class="tag">BOXING</span></div>
+            <div class="news-body">
+              <h3>Boxing News, Fight Results & Previews</h3>
+              <p>Read fight previews, championship news and results from the boxing world.</p>
+              <div class="meta"><span>🥊 Boxing</span><span>Fight updates</span></div>
+            </div>
+          </a>
+          <a class="news-card" id="nfl" href="index.html">
+            <div class="news-image nfl"><span>🏈</span><span class="tag">NFL</span></div>
+            <div class="news-body">
+              <h3>NFL 2026: Teams, Match Previews & Updates</h3>
+              <p>Follow NFL game-day coverage, team news, schedules and important plays.</p>
+              <div class="meta"><span>🏈 NFL</span><span>Game updates</span></div>
+            </div>
+          </a>
+          <a class="news-card" id="ufc" href="index.html">
+            <div class="news-image ufc"><span>🥋</span><span class="tag">UFC</span></div>
+            <div class="news-body">
+              <h3>UFC News, Fight Cards & Results</h3>
+              <p>Get the latest mixed martial arts news, event previews and fight-night updates.</p>
+              <div class="meta"><span>🥋 UFC</span><span>Latest UFC news</span></div>
+            </div>
+          </a>
+        </div>
+        <p class="notice">Note: This landing page is a front page and navigation design. Open the main website for the latest published stories and any available live-score features.</p>
+      </section>
+
+      <aside class="sidebar">
+        <section class="side-card">
+          <h3>📈 MOST VIEWED</h3>
+          <div class="popular-item"><span class="rank">1</span><span class="mini-thumb">⚽</span><span><strong>Football Headlines & Team News</strong><small>Popular category</small></span></div>
+          <div class="popular-item"><span class="rank">2</span><span class="mini-thumb">🏏</span><span><strong>Bangladesh Cricket Updates</strong><small>Popular category</small></span></div>
+          <div class="popular-item"><span class="rank">3</span><span class="mini-thumb">🏀</span><span><strong>NBA Season Stories</strong><small>Popular category</small></span></div>
+        </section>
+        <section class="side-card">
+          <h3>🗓️ FEATURED MATCH</h3>
+          <div class="match"><strong>Eagles vs Panthers (NFL)</strong><small>Kickoff: 11:00 PM (BDT)</small></div>
+          <div class="match"><strong>Football · Cricket · Basketball</strong><small>Visit the main site for current updates</small></div>
+          <p style="margin:13px 0 0"><a class="btn blue" href="index.html" style="width:100%">Open Sports News →</a></p>
+        </section>
+        <section class="side-card newsletter">
+          <h3>✉️ SPORTS UPDATES</h3>
+          <p>Visit Sports Family News for new stories, match previews and sports updates.</p>
+          <a class="btn" href="index.html" style="width:100%">Explore Latest News</a>
+        </section>
+      </aside>
+    </div>
+
+    <section class="categories">
+      <div class="section-head"><h2>⭐ Explore Sports</h2><a href="index.html">All categories →</a></div>
+      <div class="category-grid">
+        <a class="category" href="#football"><span class="emoji">⚽</span><strong>Football</strong><small>News & match updates</small></a>
+        <a class="category" href="#cricket"><span class="emoji">🏏</span><strong>Cricket</strong><small>Scores & analysis</small></a>
+        <a class="category" href="#nba"><span class="emoji">🏀</span><strong>NBA</strong><small>Basketball news</small></a>
+        <a class="category" href="#nfl"><span class="emoji">🏈</span><strong>NFL</strong><small>Game-day updates</small></a>
+        <a class="category" href="#boxing"><span class="emoji">🥊</span><strong>Boxing</strong><small>Fight news</small></a>
+        <a class="category" href="#ufc"><span class="emoji">🥋</span><strong>UFC</strong><small>MMA updates</small></a>
+      </div>
+    </section>
+    
+<section class="cta">
+      <div><h2>All your favourite sports, in one place.</h2><p>Discover football, cricket, NBA, NFL, boxing and UFC coverage on Sports Family News.</p></div>
+      <a class="btn" href="index.html">Go to Main Website →</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="index.html"><span class="brand-ball" aria-hidden="true">⚽</span><span><span class="brand-name">SPORTS FAMILY <span>NEWS</span></span><span class="tagline">Your sports, your family.</span></span></a>
+          <p>Sports Family News brings together football, cricket, NBA, NFL, boxing and UFC news.</p>
+        </div>
+        <div><h3>Quick Links</h3><a href="index.html">Home / Main News</a><a href="#football">Football</a><a href="#cricket">Cricket</a><a href="#nba">NBA</a></div>
+        <div><h3>Information</h3><a href="index.html">About Us</a><a href="index.html">Contact</a><a href="index.html">Privacy Policy</a><a href="index.html">Disclaimer</a></div>
+        <div><h3>Follow Sports</h3><p>Follow your favourite teams and return for the latest sports stories.</p><a href="index.html">Visit Sports Family News ↗</a></div>
+      </div>
+      <div class="copyright"><span>© 2026 Sports Family News. All rights reserved.</span><span>Football · Cricket · NBA · NFL · Boxing · UFC</span></div>
+    </div>
+  </footer>
+
+  <script>
+    // Search the category cards on this landing page.
+    const searchForm = document.getElementById('site-search');
+    const searchInput = document.getElementById('search-input');
+    const newsCards = Array.from(document.querySelectorAll('.news-card'));
+
+    searchForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+      const query = searchInput.value.trim().toLowerCase();
+      if (!query) {
+        newsCards.forEach(card => card.hidden = false);
+        return;
+      }
+      newsCards.forEach(card => {
+        card.hidden = !card.textContent.toLowerCase().includes(query);
+      });
+      document.getElementById('latest').scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
